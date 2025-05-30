@@ -7,7 +7,19 @@ import logging
 import hydra
 from omegaconf import DictConfig
 
-from recipes.cpc3.baseline.shared_predict_utils import (
+# (clarity)qclarity/recipes/cpc3/baseline$ python predict_dev.py dataset=clarity_demo_data split=dev
+# [2025-05-30 16:00:38,545][__main__][INFO] - Loading dataset...
+# [2025-05-30 16:00:38,547][__main__][INFO] - Making the fitting model...
+# [2025-05-30 16:00:38,560][__main__][INFO] - Starting predictions...
+# [2025-05-30 16:00:40,799][__main__][INFO] - Predictions saved to clarity_demo_data.dev.predict.csv
+
+# (clarity)qclarity/recipes/cpc3/baseline$ python predict_dev.py dataset=clarity_data split=dev
+# [2025-05-30 16:22:46,504][__main__][INFO] - Loading dataset...
+# [2025-05-30 16:22:46,887][__main__][INFO] - Making the fitting model...
+# [2025-05-30 16:22:46,898][__main__][INFO] - Starting predictions...
+# [2025-05-30 16:22:46,902][__main__][INFO] - Predictions saved to clarity_data.dev.predict.csv
+
+from shared_predict_utils import ( # recipes.cpc3.baseline.
     LogisticModel,
     load_dataset_with_haspi,
 )

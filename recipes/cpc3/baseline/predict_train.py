@@ -1,5 +1,19 @@
 """Make intelligibility predictions from HASPI scores."""
 
+# (clarity)qclarity/recipes/cpc3/baseline$ python predict_train.py dataset=clarity_demo_data split=train
+# [2025-05-30 15:39:39,196][__main__][INFO] - Loading dataset...
+# [2025-05-30 15:39:39,199][__main__][INFO] - Processing signal components...
+# [2025-05-30 15:39:39,203][__main__][INFO] - Starting predictions...
+# 100%|██████| 30/30 [00:00<00:00, 55.15it/s]
+# [2025-05-30 15:39:39,751][__main__][INFO] - Predictions saved to clarity_demo_data.train.predict.csv
+
+# (clarity)qclarity/recipes/cpc3/baseline$ python predict_train.py dataset=clarity_data split=train
+# [2025-05-30 16:13:50,973][__main__][INFO] - Loading dataset...
+# [2025-05-30 16:13:51,108][__main__][INFO] - Processing signal components...
+# [2025-05-30 16:13:51,122][__main__][INFO] - Starting predictions...
+# 100%|██████| 15520/15520 [04:54<00:00, 52.71it/s]
+# [2025-05-30 16:18:45,581][__main__][INFO] - Predictions saved to clarity_data.train.predict.csv
+
 from __future__ import annotations
 
 import logging
@@ -8,7 +22,7 @@ import hydra
 from omegaconf import DictConfig
 from tqdm import tqdm
 
-from recipes.cpc3.baseline.shared_predict_utils import (
+from shared_predict_utils import ( # recipes.cpc3.baseline.
     LogisticModel,
     load_dataset_with_haspi,
     make_disjoint_train_set,

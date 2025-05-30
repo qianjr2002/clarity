@@ -1,0 +1,7 @@
+clarity_data_root: ../clarity_CPC3_data
+dataset: clarity_data
+split: train
+compute_haspi:
+  batch: 1
+  n_batches: 1
+  set_random_seed: true

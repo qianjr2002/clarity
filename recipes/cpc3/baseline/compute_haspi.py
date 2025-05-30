@@ -1,5 +1,15 @@
 """Compute the HASPI scores."""
 
+# (clarity)qclarity/recipes/cpc3/baseline$ python compute_haspi.py dataset=clarity_demo_data split=train
+# [2025-05-30 15:32:01,991][__main__][INFO] - Computing scores for 30 signals
+# 100%|███████| 30/30 [02:00<00:00,  4.03s/it]
+
+# (clarity) qianjingrui0827@turing:~/qjr_projects/qclarity/recipes/cpc3/baseline$ python compute_haspi.py dataset=clarity_demo_data split=dev
+# [2025-05-30 15:54:52,601][__main__][INFO] - Computing scores for 2 signals
+# 100%|█████| 2/2 [00:42<00:00, 21.49s/it]
+
+# cp recipes/cpc3/baseline/precomputed_haspi/* recipes/cpc3/baseline/exp
+
 from __future__ import annotations
 
 import csv

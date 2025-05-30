@@ -1,5 +1,21 @@
 """Evaluate the predictions against the ground truth correctness values"""
 
+# (clarity)qclarity/recipes/cpc3/baseline$ python evaluate.py dataset=clarity_demo_data
+# {
+#   "RMSE": 28.15559701875442,
+#   "Std": 5.137555229982369,
+#   "NCC": 0.7456185896731286,
+#   "KT": 0.5647092630054318
+# }
+
+# (clarity)qclarity/recipes/cpc3/baseline$ python evaluate.py dataset=clarity_data
+# {
+#   "RMSE": 29.4648626801858,
+#   "Std": 0.23649479713894841,
+#   "NCC": 0.6727172812813198,
+#   "KT": 0.47945376568105186
+# }
+
 import json
 import logging
 from pathlib import Path
