@@ -72,3 +72,6 @@ clarity/_version.py
 
 #log fils
 *.log
+
+# data link
+recipes/cpc3/enhanced/clarity_CPC3_data

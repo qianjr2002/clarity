@@ -1,0 +1,47 @@
+# hydra:
+#   run:
+#     dir: exp/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+hydra:
+  run:
+    dir: exp
+  job:
+    chdir: True
+
+audio:
+  sample_rate: 32000
+
+model:
+  n_fft: 512
+  hop_length: 256
+  win_length: 512
+
+training:
+  seed: 42 
+  lr: 0.001
+  batch_size: 64
+  epochs: 5
+  num_workers: 4  # 数据加载的工作进程数
+  validate_every: 1  # 每1个epoch进行一次验证
+  save_every: 1  # 每1个epoch保存一次模型
+  save_dir: "checkpoints"  # 模型保存目录
+  resume_path: null  # 默认是 null
+  early_stop_patience: 3  # 连续13次 val_loss 不提升就 early stop
+  scheduler_factor: 0.5  # 学习率下降倍数
+  scheduler_patience: 4  # 学习率耐心（5次没提升就降LR）
+
+
+logging:
+  model_name: "LiteSE"
+  version: "5b"
+
+data:
+  root: "/home/qianjingrui0827/qjr_projects/clarity/recipes/cpc3/clarity_CPC3_data"  # 数据集根目录
+  train_dir: "clarity_data/train"  # 训练集目录
+  dev_dir: "clarity_data/dev"  # 验证集目录
+  metadata_dir: "clarity_data/metadata"  # 元数据目录
+  split: train 
+  use_demo: false
+
+# evaluate:
+#   checkpoint_path: "/home/qianjingrui0827/qjr_projects/clarity/recipes/cpc3/enhanced/exp/2025-04-27/20-11-20/checkpoints/last.pt"
