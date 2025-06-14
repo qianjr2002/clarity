@@ -114,14 +114,14 @@ class LiteSELightningModule(LightningModule):
 def main(cfg: DictConfig):
     seed_everything(cfg.training.seed)
 
-    output_dir = HydraConfig.get().runtime.output_dir
-    save_dir = os.path.join(output_dir, cfg.training.save_dir)
-    os.makedirs(save_dir, exist_ok=True)
+    # output_dir = HydraConfig.get().runtime.output_dir
+    # save_dir = os.path.join(output_dir, cfg.training.save_dir)
+    # os.makedirs(save_dir, exist_ok=True)
 
     model_name = cfg.logging.model_name
     version = cfg.logging.version
 
-    base_log_dir = os.path.join("exp", "logs", model_name)
+    base_log_dir = os.path.join("logs", model_name)
     version_dir = os.path.join(base_log_dir, version)
     ckpt_dir = os.path.join(version_dir, "checkpoints")
     os.makedirs(ckpt_dir, exist_ok=True)
@@ -164,7 +164,7 @@ def main(cfg: DictConfig):
         # strategy='ddp',     # 使用DDP多卡训练
         check_val_every_n_epoch=cfg.training.validate_every,
         log_every_n_steps=10,
-        default_root_dir=save_dir,
+        default_root_dir=base_log_dir,
     )
 
     trainer.fit(model,ckpt_path=cfg.training.get("resume_path", None))
